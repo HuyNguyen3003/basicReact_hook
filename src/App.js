@@ -28,7 +28,12 @@ function App() {
   const handleEventOnchange = (event) => {
     setName(event.target.value)
   }
-  //
+  const DeleteDatatodo = (id) => {
+    let currentTodo = todos
+    currentTodo = currentTodo.filter(item => item.id !== id)
+    setTodo(currentTodo)
+
+  }
 
 
 
@@ -40,6 +45,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>hello word react with ziille</h1>
         <Todo todos={todos}
+          title='list todo'
+          DeleteDatatodo={DeleteDatatodo}
         ></Todo>
         <input type="text" value={name} onChange={handleEventOnchange}></input>
         <button onClick={handleEvenClick}>click me</button>
