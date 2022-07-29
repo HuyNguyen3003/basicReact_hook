@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
 import { useState } from 'react'
+import Todo from './views/Todo';
 
 
 
@@ -20,7 +21,7 @@ function App() {
       alert('errol')
       return
     }
-    let dotolist = { id: Math.floor(Math.random() * 100), title: name };
+    let dotolist = { id: Math.floor(Math.random() * 100), title: name + Math.floor(Math.random() * 100) };
     setTodo([...todos, dotolist])
     setName('')
   }
@@ -38,14 +39,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>hello word react with ziille</h1>
-        <div className='Todo-container'>
-          {todos.map(todo => {
-            return (
-              <div className='Todo-child' id={todo.id}>{todo.title}</div>
-            )
-          })}
-
-        </div>
+        <Todo todos={todos}
+        ></Todo>
         <input type="text" value={name} onChange={handleEventOnchange}></input>
         <button onClick={handleEvenClick}>click me</button>
 
