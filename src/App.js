@@ -1,20 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Todo from './views/Todo';
+import Covid from './views/covid';
 
 
 
 function App() {
 
   // state
-  let [name, setName] = useState("huy")
+  let [name, setName] = useState("")
   const [todos, setTodo] = useState([
     { id: 'todo1', title: 'watching todo' },
     { id: 'todo2', title: 'watching doto' },
     { id: 'todo3', title: 'watching uu' }
   ])
+
 
   const handleEvenClick = (event) => {
     if (!name) {
@@ -38,18 +40,22 @@ function App() {
 
 
 
+
   return (
     <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>hello word react with ziille</h1>
-        <Todo todos={todos}
+        {/* <Todo todos={todos}
           title='list todo'
           DeleteDatatodo={DeleteDatatodo}
         ></Todo>
         <input type="text" value={name} onChange={handleEventOnchange}></input>
-        <button onClick={handleEvenClick}>click me</button>
+        <button onClick={handleEvenClick}>click me</button> */}
+        <Covid >
+
+        </Covid>
 
       </header>
     </div>

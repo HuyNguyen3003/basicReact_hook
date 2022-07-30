@@ -5,7 +5,6 @@ const Todo = (props) => {
     const { todos, title, DeleteDatatodo } = props
     const handleDelete = (id) => {
         DeleteDatatodo(id)
-
     }
     return (
         <div className='Todo-container'>
