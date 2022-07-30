@@ -4,6 +4,7 @@ import Nav from './views/Nav';
 import { useState, useEffect } from 'react'
 import Todo from './views/Todo';
 import Covid from './views/covid';
+import { Countdown, NewCountdown } from './views/Countdown';
 
 
 
@@ -36,6 +37,9 @@ function App() {
     setTodo(currentTodo)
 
   }
+  const timeend = () => {
+    alert('time done')
+  }
 
 
 
@@ -53,9 +57,15 @@ function App() {
         ></Todo>
         <input type="text" value={name} onChange={handleEventOnchange}></input>
         <button onClick={handleEvenClick}>click me</button> */}
-        <Covid >
+        {/* <Covid/>  */}
+        <Countdown
+          timeend={timeend}
+        ></Countdown>
+        <NewCountdown
+          timeend={timeend}
+        ></NewCountdown>
 
-        </Covid>
+
 
       </header>
     </div>
