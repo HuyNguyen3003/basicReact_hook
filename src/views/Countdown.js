@@ -19,7 +19,7 @@ class Countdown extends React.Component {
         if (prevProps.count !== prevState.count && this.state.count === 0) {
             if (this.timer) {
                 clearInterval(this.timer)
-                this.props.timeend();
+                //  this.props.timeend();
             }
         }
     }
@@ -64,14 +64,8 @@ const NewCountdown = (props) => {
     }, [count])
 
     return (
-        <>
-            <div>(HOOK):{count} </div>
 
-
-
-        </>
-
-
+        <div>(HOOK):{count} </div>
     )
 }
 

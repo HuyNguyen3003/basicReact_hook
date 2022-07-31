@@ -5,6 +5,12 @@ import { useState, useEffect } from 'react'
 import Todo from './views/Todo';
 import Covid from './views/covid';
 import { Countdown, NewCountdown } from './views/Countdown';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
@@ -46,29 +52,43 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Nav />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>hello word react with ziille</h1>
-        {/* <Todo todos={todos}
-          title='list todo'
-          DeleteDatatodo={DeleteDatatodo}
-        ></Todo>
-        <input type="text" value={name} onChange={handleEventOnchange}></input>
-        <button onClick={handleEvenClick}>click me</button> */}
-        {/* <Covid/>  */}
-        <Countdown
-          timeend={timeend}
-        ></Countdown>
-        <NewCountdown
-          timeend={timeend}
-        ></NewCountdown>
+    <Router >
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        <Switch>
+          <Route path="/" exact>
+            <Covid />
+          </Route>
+          <Route path="/timer">
+            <Countdown
+              timeend={timeend}
+            ></Countdown>
+            <NewCountdown
+              timeend={timeend}
+            ></NewCountdown>
+          </Route>
+          <Route path="/todo">
+            <Todo
+              todos={todos}
+              title='list todo'
+              DeleteDatatodo={DeleteDatatodo}
+            ></Todo>
+            <input type="text" value={name} onChange={handleEventOnchange} />
+            <button type="button" onClick={handleEvenClick}>Click me</button>
+          </Route>
+          <Route path="/secret">
+
+          </Route>
+        </Switch>
 
 
+      </div>
+    </Router>
 
-      </header>
-    </div>
+
   );
 }
 
