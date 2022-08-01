@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 import Todo from './views/Todo';
 import Covid from './views/covid';
 import { Countdown, NewCountdown } from './views/Countdown';
+import Blog from './views/Blog';
+import DetailBlog from './views/Detailblog';
 import {
   BrowserRouter as Router,
   Switch,
@@ -81,6 +83,12 @@ function App() {
           </Route>
           <Route path="/secret">
 
+          </Route>
+          <Route path="/blog" exact>
+            <Blog />
+          </Route>
+          <Route path="/blog/:id" >
+            <DetailBlog />
           </Route>
         </Switch>
 

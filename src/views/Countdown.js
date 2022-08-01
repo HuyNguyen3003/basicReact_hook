@@ -15,6 +15,12 @@ class Countdown extends React.Component {
         }, 1000);
     }
 
+    componentWillUnmount() {
+        if (this.timer) {
+            clearInterval(this.timer)
+        }
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.count !== prevState.count && this.state.count === 0) {
             if (this.timer) {
@@ -51,7 +57,6 @@ const NewCountdown = (props) => {
     const [count, setCount] = useState(10)
     useEffect(() => {
         if (count === 0) {
-            props.timeend()
             return;
         }
         let timer = setInterval(() => {

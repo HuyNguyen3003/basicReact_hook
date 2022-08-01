@@ -12,11 +12,48 @@
       background-color: #ddd;
       color: black;
     }
-    a.active {
+    a.active1 {
       background-color: #04AA6D;
       color: white;
     }
 
     
   }
+  .continer-blog{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap
+
+  }
+  .Single-Blog {
+    border: 1px solid gray;
+    border-radius:  3px; ;
+    padding: 10px;
+    max-width: 31%;
+    text-align: left !important;
+    
+    
+}
+.bnt-view{
+  display: revert;
+  margin-top: 20px;
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+.Title{
+  font-size: 18px;
+    font-weight: 700;
+}
+.body{
+  font-size: 12px;
+}
+.Blog-detail{
+border: 1px solid gray;
+padding: 10px;
+margin: 10px;
+
+}
   
