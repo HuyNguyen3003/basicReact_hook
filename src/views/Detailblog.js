@@ -1,6 +1,8 @@
 import { useParams, useHistory, Link } from "react-router-dom";
 import useFetch from "../customize/fetch";
 import './Nav.scss'
+import { useState, useEffect } from 'react'
+
 
 
 
@@ -8,23 +10,45 @@ import './Nav.scss'
 const DetailBlog = () => {
     let { id } = useParams();
     let history = useHistory();
-    let idlink = new Number(id)
-    idlink = idlink + 1
-    console.log(idlink)
+    let [idnext, setidnext] = useState(Number(id))
+    let [idback, setidback] = useState(Number(id))
+
+
+
+
 
     const handleBack = () => {
         history.push("/blog")
     }
-
     let { data: DataBlogDetail, Loadding: isLoadding }
         = useFetch(`https://jsonplaceholder.typicode.com/posts/${id}`, false)
+    useEffect(() => {
+        setidnext(Number(id) + 1)
+        setidback(Number(id) - 1)
+        DataBlogDetail.title = 'Loadding'
+        DataBlogDetail.body = '...'
 
-    const handleNext = () => {
-        idlink = new Number(id)
-        idlink = idlink + 1
-        DataBlogDetail.title = '... Loadding'
-        DataBlogDetail.body = ''
-    }
+    }, [id])
+
+    // const handle = () => {
+    //     setidnext(idnext + 1)
+    //     setidback(idback - 1)
+
+    //     console.log(idnext)
+    //     console.log(idback)
+
+
+    // }
+    // const handlenext = () => {
+    //     setidnext(idnext + 1)
+    //     setidback(idback + 1)
+    // }
+    // const handleBack1 = () => {
+    //     setidnext(idnext - 1)
+    //     setidback(idback - 1)
+    // }
+
+
     return (
         <>
 
@@ -49,9 +73,15 @@ const DetailBlog = () => {
 
             </div>
 
-            <button className="bnt-view" onClick={handleNext}>
-                <Link to={`/blog/${idlink}`}>Next --&gt;</Link>
-            </button>
+            {/* <button className="bnt-view" onClick={handle}  >
+                chi can nhan 1 lan de luu thong so chuyen trang;
+                {console.log('>> id next ', idnext)}{console.log(">> id back", idback)}
+            </button> */}
+            <br></br> <Link to={`/blog/${idnext}`}>Next </Link>
+            <br></br> <Link to={`/blog/${idback}`}>Back </Link>
+            {isLoadding === true &&
+                <div style={{ 'textAlign': 'center' }}>Loadding</div>
+            }
 
 
 
