@@ -1,12 +1,13 @@
 import useFetch from "../customize/fetch";
 import './Nav.scss'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 
 
 
 const Blog = () => {
+    let history = useHistory()
 
     const { data: dataBlog, Loadding: isLoadding }
         = useFetch(`https://jsonplaceholder.typicode.com/posts`, false)
@@ -15,10 +16,16 @@ const Blog = () => {
     if (dataBlog && dataBlog.length > 0) {
         newData = dataBlog.slice(0, 9)
     }
+    const handleNewBlog = () => {
+        history.push("/add-new-blog")
+
+
+    }
 
 
     return (
         <>
+            <div><button className="btn-addblog" onClick={handleNewBlog}>ADD NEW BLOG</button></div>
             <div className="continer-blog">
                 {isLoadding === false && newData && newData.length > 0 &&
                     newData.map(item => {

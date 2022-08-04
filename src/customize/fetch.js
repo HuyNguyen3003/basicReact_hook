@@ -5,7 +5,7 @@ import moment from "moment";
 const useFetch = (url, isCovidData) => {
 
     const [data, setdata] = useState([])
-    let [Loadding, setLoadding] = useState(true)
+    const [Loadding, setLoadding] = useState(true)
 
 
     useEffect(() => {

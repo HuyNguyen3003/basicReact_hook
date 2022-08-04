@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Todo from './views/Todo';
 import Covid from './views/covid';
 import { Countdown, NewCountdown } from './views/Countdown';
 import Blog from './views/Blog';
 import DetailBlog from './views/Detailblog';
+import AddBlog from './views/AddBlog';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+
 } from "react-router-dom";
 
 
@@ -84,12 +86,17 @@ function App() {
           <Route path="/secret">
 
           </Route>
+          <Route path="/add-new-blog">
+            <AddBlog />
+          </Route>
           <Route path="/blog" exact>
             <Blog />
           </Route>
           <Route path="/blog/:id" >
             <DetailBlog />
           </Route>
+
+
         </Switch>
 
 
