@@ -8,6 +8,7 @@ import { Countdown, NewCountdown } from './views/Countdown';
 import Blog from './views/Blog';
 import DetailBlog from './views/Detailblog';
 import AddBlog from './views/AddBlog';
+import Notfound from './views/404';
 
 import {
   BrowserRouter as Router,
@@ -95,7 +96,9 @@ function App() {
           <Route path="/blog/:id" >
             <DetailBlog />
           </Route>
-
+          <Route path="*" >
+            <Notfound />
+          </Route>
 
         </Switch>
 
