@@ -1,7 +1,8 @@
 import { useState } from "react";
+import axios from "axios";
 
 
-const AddBlog = () => {
+const AddBlog = (props) => {
 
     const [title, settitle] = useState('');
     const [body, setbody] = useState('');
@@ -11,11 +12,20 @@ const AddBlog = () => {
     const handleInputBody = (event) => {
         setbody(event.target.value);
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         if (!title || !body === '') { alert('errol data'); return }
-        settitle("");
-        setbody("")
+        let data = {
+            title: title,
+            body: body,
+            userID: 1
+        }
+        let res = await axios.post('https://jsonplaceholder.typicode.com/posts', data)
+        //console.log("check data", data)
+        if (res && res.data) {
+            let newBlog = res.data;
+            props.handleNewBlog(newBlog)
+        }
     }
     return (
         <div>
@@ -27,7 +37,7 @@ const AddBlog = () => {
                 <input type="text" value={title} onChange={handleInputTitle} ></input><br /><br />
                 <label for="lname">Body:   </label>
                 <input type="text" value={body} onChange={handleInputBody} ></input><br /><br />
-                <button type="submit" >Submit</button>
+                <button type="submit" onChange={handleSubmit} >Submit</button>
             </form>
 
 
