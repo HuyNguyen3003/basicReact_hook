@@ -9,6 +9,7 @@ import Blog from './views/Blog';
 import DetailBlog from './views/Detailblog';
 import AddBlog from './views/AddBlog';
 import Notfound from './views/404';
+import YTBsearch from './views/YTBsearch'
 
 import {
   BrowserRouter as Router,
@@ -85,7 +86,7 @@ function App() {
             <button type="button" onClick={handleEvenClick}>Click me</button>
           </Route>
           <Route path="/secret">
-
+            <YTBsearch />
           </Route>
           <Route path="/add-new-blog">
             <AddBlog />

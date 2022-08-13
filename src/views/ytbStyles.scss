@@ -1,0 +1,53 @@
+.ytb-search-content{
+
+    input {
+        outline: none;
+        width: 32%;
+        border: none;
+        border-radius:3px ;
+        padding: 5px;
+        margin: 5px 10px;
+    }
+    button{
+        outline: none;
+        padding: 3px;
+        border: none;
+        border-radius:  3px; ;
+    }
+    .yt-result{
+    display:flex;
+   padding: 10px 20px;
+   width: 100%;
+   height: 311px;
+    }
+    .left{
+        width:50%;
+        iframe{
+            border: 1px solid red;
+            margin-right: 20%;
+            width: 86%;
+            height: 100%;
+        
+        }
+
+    }
+    .right{
+        width:48%;
+        border: 1px solid green;
+        text-align: left;
+        padding: 5px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap:20px; 
+     
+
+        .title{
+            font-size: 18px;
+            font-weight: 600;
+
+        }
+    
+    }
+
+}
